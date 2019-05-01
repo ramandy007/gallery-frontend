@@ -1,6 +1,6 @@
 import React ,{Component}from 'react';
 import {Bootstrap,Navbar,Form,Button,Nav,NavDropdown,FormControl,Container} from 'react-bootstrap';
-
+import './navbar.css'
 
 function Navbar1 (){
     
@@ -24,10 +24,11 @@ function Navbar1 (){
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" className="btn-space">Logout</Button>
+
           </Form>
 
           <Form >
-              <Button variant="outline-success" className=" mr-sm-2">Logout</Button>
 
           </Form>
         </Navbar.Collapse>
