@@ -1,11 +1,18 @@
 .form-space{
     margin:15px;
+    display:flex;
+    background-color: aliceblue;
+    border:1px solid;
+    border-width: 3px;
+    border-radius: 4px;
+    border-color: rgb(27, 6, 146);
 
     
 }
-.col-space{
+.col-space ,.btn-space{
     margin:5px;
 }
+
 
 /* .align-right{
     text-align: left;

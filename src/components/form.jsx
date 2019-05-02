@@ -4,19 +4,13 @@ import {Bootstrap,Row,Col,Form,Button,FormControl,Container} from 'react-bootstr
 
 import './form.css';
 
-
+//  navbar-expand-lg navbar-light bg-light static-top mb-5 shadow
 class PageForm extends Component{
     render(){
         return(
-    
-                
-
-
-
-
-         
-
-            <div className=" float-md-left">
+          
+            
+            <div >
             <Form className="form-space">
                 <Form.Row>
                     <Form.Group>
@@ -70,7 +64,7 @@ class PageForm extends Component{
                     </Form.Group>
 
                     <Form.Group >
-                        <div className="col-auto col-space" >
+                        <Col className="col-auto col-space" >
                         <Form.Label>Gender</Form.Label>
                         <Form.Control as="select">
                             <option>Male</option>
@@ -78,12 +72,33 @@ class PageForm extends Component{
                             <option>Unknown</option>
                             
                         </Form.Control>
+                        </Col>
+                        </Form.Group>  
+
+                       
+                      <Form.Group>
+                      <Form.Label>      </Form.Label>
+                       <Col  className="col-auto btn-space"><Button>Submit</Button>
+                       </Col>
+                       </Form.Group>
+
+
+{/* 
+                    <Form.Group >
+                        <div className="col-auto col-space" >
+                        <Form.Label>Submit</Form.Label>   
+                                       
+                        <Button variant="outline-success">Search</Button>     
+                                      
                         </div>
-                        </Form.Group>   
+
+                        </Form.Group>                   */}
 
                 </Form.Row>
+
                 </Form>
                 </div>
+               
                 
         );
     }
