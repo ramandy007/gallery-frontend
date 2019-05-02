@@ -1,4 +1,5 @@
 import React ,{Component}from 'react';
+import axios from 'axios';
 
 import {Col,Form,Button} from 'react-bootstrap';
 
@@ -14,9 +15,17 @@ class PageForm extends Component{
             date:null,
             age:null,
             color:null,
+            url:""
 
         }
+
+    
     }
+    callQuery(){
+        axios.get("http://localhost:3001/query").then(response=>{console.log(response.data)})
+        .then(response=>this.setState({url:response.data}))
+    }
+    
     render(){
         return(
           
@@ -110,10 +119,11 @@ class PageForm extends Component{
                        
                       <Form.Group>
                       <Form.Label>      </Form.Label>
-                       <Col  className="col-auto btn-space"><Button>Submit</Button>
+                       <Col  className="col-auto btn-space"><Button onClick={()=>this.callQuery()}>Submit</Button>
                        </Col>
                        </Form.Group>
 
+       
 
 {/* 
                     <Form.Group >
