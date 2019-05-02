@@ -1,0 +1,11 @@
+{ this.url.map[(url,k)=>{
+                   const image_url1=url.IMAGENAME1;
+                   const image_url2=url.IMAGENAME2;
+                   const image_url3=url.IMAGENAME3;
+                   return(
+                    <div key={k} className="image">
+                        <img src ={image_url1} className="track-img" alt="url" />
+                        <p className="track-text">{k}</p>
+                     </div> 
+                     )
+                }]}  

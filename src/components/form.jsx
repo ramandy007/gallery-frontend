@@ -1,9 +1,10 @@
 import React ,{Component}from 'react';
 import axios from 'axios';
 
-import {Col,Form,Button} from 'react-bootstrap';
+import {Col,Form,Button,Container} from 'react-bootstrap';
 
 import './form.css';
+import Gallery from './gallery'
 
 //  navbar-expand-lg navbar-light bg-light static-top mb-5 shadow
 class PageForm extends Component{
@@ -15,15 +16,18 @@ class PageForm extends Component{
             date:null,
             age:null,
             color:null,
-            url:""
+            url:null,
+            show:false,
 
         }
 
     
     }
+   
     callQuery(){
-        axios.get("http://localhost:3001/query").then(response=>{console.log(response.data)})
-        .then(response=>this.setState({url:response.data}))
+        axios.get("http://localhost:3001/query").then(res=>{const url = res.data;this.setState({url:url});console.log(url); })
+
+        
     }
     
     render(){
@@ -119,30 +123,28 @@ class PageForm extends Component{
                        
                       <Form.Group>
                       <Form.Label>      </Form.Label>
-                       <Col  className="col-auto btn-space"><Button onClick={()=>this.callQuery()}>Submit</Button>
+                       <Col  className="col-auto btn-space"><Button  variant="outline-success"
+                         onClick={()=>{this.callQuery();this.setState({show:!this.state.show})}}>Submit</Button>
                        </Col>
                        </Form.Group>
 
        
 
-{/* 
-                    <Form.Group >
-                        <div className="col-auto col-space" >
-                        <Form.Label>Submit</Form.Label>   
-                                       
-                        <Button variant="outline-success">Search</Button>     
-                                      
-                        </div>
-
-                        </Form.Group>                   */}
-
                 </Form.Row>
 
                 </Form>
+                 {this.state.show?<Container>
+                    <Gallery url={this.state.url} ></Gallery>
+                
+                </Container>:null}   
+                
                 </div>
+
+                
                
                 
         );
+        
     }
 }
 
