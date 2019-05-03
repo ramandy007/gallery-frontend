@@ -16,7 +16,7 @@ class PageForm extends Component{
             date:null,
             age:null,
             color:null,
-            url:null,
+            url:[""],
             show:false,
 
         }
@@ -25,7 +25,7 @@ class PageForm extends Component{
     }
    
     callQuery(){
-        axios.get("http://localhost:3001/query").then(res=>{const url = res.data;this.setState({url:url});console.log(url); })
+        axios.get("http://localhost:3001/query").then(res=>{const url = res.data;this.setState({url:url}); })
 
         
     }
@@ -136,8 +136,8 @@ class PageForm extends Component{
                  {this.state.show?<Container>
                     <Gallery url={this.state.url} ></Gallery>
                 
-                </Container>:null}   
-                
+                </Container>  :null 
+                 }
                 </div>
 
                 
