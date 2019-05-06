@@ -25,7 +25,13 @@ class PageForm extends Component{
     }
    
     callQuery(){
-        axios.get("http://localhost:3001/query").then(res=>{const url = res.data;this.setState({url:url}); })
+        try{    
+                axios.get("http://localhost:3001/query",{params:{fromTime:this.state.fromTime,toTime:this.state.toTime,date:this.state.date,age:this.state.age,color:this.state.color}})
+                .then(res=>{const url = res.data;this.setState({url:url}); })}
+
+        catch(e){ console.log(e);}
+
+       
 
         
     }
