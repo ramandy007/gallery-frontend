@@ -79,7 +79,9 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
-
+.img-space{
+  padding: 5px;
+}
 .modal-close {
   position: absolute;
   top: 0;
@@ -87,6 +89,7 @@ body {
   font-size: 1.5rem;
   color: #111;
   transition: all 0.25s ease-in-out;
+  
 }
 .modal-close:focus, .modal-close:hover {
   color: #fff;

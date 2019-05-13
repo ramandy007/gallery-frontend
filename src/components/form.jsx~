@@ -11,12 +11,12 @@ class PageForm extends Component{
     constructor(props){
         super(props);
         this.state={
-            fromTime:null,
+            fromTime:"",
             toTime:null,
             date:null,
             age:null,
             color:null,
-            url:null,
+            url:[""],
             show:false,
 
         }
@@ -26,7 +26,7 @@ class PageForm extends Component{
    
     callQuery(){
         try{    
-                axios.get("http://localhost:3021/query",{params:{fromTime:this.state.fromTime,toTime:this.state.toTime,date:this.state.date,age:this.state.age,color:this.state.color}})
+                axios.get("http://localhost:3001/query",{params:{fromTime:this.state.fromTime,toTime:this.state.toTime,date:this.state.date,age:this.state.age,color:this.state.color}})
                 .then(res=>{const url = res.data;this.setState({url:url}); })}
 
         catch(e){ console.log(e);}
@@ -89,8 +89,7 @@ class PageForm extends Component{
                         <Form.Control as="select" value={this.state.color} 
                          onInput={(event)=>{this.setState({color:event.target.value});
                          console.log("event",event.target.value);}}
-                        >   
-                            <option disabled="true" selected="true">color</option>
+                        >
                             <option>Blue</option>
                             <option>Green</option>
                             <option>Red</option>
@@ -140,16 +139,10 @@ class PageForm extends Component{
                 </Form.Row>
 
                 </Form>
-                 {(this.state.show && this.state.url!==null)?
-                 <Container>
+                 {this.state.show?<Container>
                     <Gallery url={this.state.url} ></Gallery>
-                                   
                 
-                </Container>  : <Container>
-                    <h4 className="not-found">Images not found!!</h4>
-                    
-                </Container>
-                
+                </Container>  :null 
                  }
                 </div>
 
