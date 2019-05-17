@@ -18,6 +18,7 @@ class PageForm extends Component{
             color:null,
             url:null,
             show:false,
+            error:null
 
         }
 
@@ -27,7 +28,13 @@ class PageForm extends Component{
     callQuery(){
         try{    
                 axios.get("http://localhost:3021/query",{params:{fromTime:this.state.fromTime,toTime:this.state.toTime,date:this.state.date,age:this.state.age,color:this.state.color}})
-                .then(res=>{const url = res.data;this.setState({url:url}); })}
+                .then(res=>{const url = res.data;this.setState({url:url});
+                if (res.status ===500){this.setState({loading:res.message})}
+                else{
+                    const error=new Error(res.error);
+                    throw error;
+                } })
+             }
 
         catch(e){ console.log(e);}
 
@@ -90,7 +97,7 @@ class PageForm extends Component{
                          onInput={(event)=>{this.setState({color:event.target.value});
                          console.log("event",event.target.value);}}
                         >   
-                            <option disabled="true" selected="true">color</option>
+                            <option disabled={false} selected="unknown" >unknown</option>
                             <option>Blue</option>
                             <option>Green</option>
                             <option>Red</option>
@@ -98,6 +105,9 @@ class PageForm extends Component{
                             <option>White</option>
                             <option>Yellow</option>
                             <option>pink</option>
+                            <option>Purple</option>
+                            <option>Grey</option>
+                            <option>Magenta</option>
                         </Form.Control>
                         </div>
                         </Form.Group>   
@@ -142,11 +152,10 @@ class PageForm extends Component{
                 </Form>
                  {(this.state.show && this.state.url!==null)?
                  <Container>
-                    <Gallery url={this.state.url} ></Gallery>
-                                   
+                    <Gallery url={this.state.url} ></Gallery>                                
                 
                 </Container>  : <Container>
-                    <h4 className="not-found">Images not found!!</h4>
+                    <h4 className="not-found" >Images not found!!</h4>
                     
                 </Container>
                 
