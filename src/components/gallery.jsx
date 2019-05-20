@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import {Table} from "react-bootstrap";
-import './gallery.css'
+import './gallery.css';
 import VPlayer from "./player";
+import Pagination from "./Pagination";
 
 
 
@@ -112,6 +113,7 @@ class Gallery extends Component{
               
                 
                <GalleryModal isOpen={this.state.showModal} onClick={this.closeModal} src={this.state.url} />
+               <Pagination url = {this.props.url}/>
             </div>
         );
     }
