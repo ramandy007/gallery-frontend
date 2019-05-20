@@ -119,3 +119,7 @@ body {
     border-color: rgb(27, 6, 146);
     padding: 0 4px;
 }
+
+.Pagination{
+  align-self: center;
+}

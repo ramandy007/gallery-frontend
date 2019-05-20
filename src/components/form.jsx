@@ -4,7 +4,7 @@ import axios from 'axios';
 import {Col,Form,Button,Container} from 'react-bootstrap';
 
 import './form.css';
-import Gallery from './gallery'
+import Gallery from './gallery_pagination'
 
 //  navbar-expand-lg navbar-light bg-light static-top mb-5 shadow
 class PageForm extends Component{
@@ -121,7 +121,7 @@ class PageForm extends Component{
                     />
                     </Col>
                     </Form.Group>
-
+ 
                     <Form.Group >
                         <Col className="col-auto col-space"  >
                         <Form.Label>Gender</Form.Label>
@@ -135,7 +135,23 @@ class PageForm extends Component{
                             
                         </Form.Control>
                         </Col>
-                        </Form.Group>  
+                        </Form.Group>   
+
+                        {/* <div>
+                        <Form>
+                            {['radio'].map(type => (
+                                <div key={`inline-${type}`} className="mb-3">
+                                <Form.Check inline label="Male" type={type} id={`inline-${type}-1`} />
+                                <Form.Check inline label="Female" type={type} id={`inline-${type}-2`} />
+                                <Form.Check inline label="Unknown" type={type}  id={`inline-${type}-3`} />
+                                </div>
+                            ))}
+                        </Form>;                            
+
+
+                        </div> */}
+
+
 
                        
                       <Form.Group>
