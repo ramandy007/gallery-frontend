@@ -47,6 +47,7 @@ class Navbar extends Component {
 
                 </li>
                 <li className="navbar-nav">
+                   
                     <a href="" onClick={this.logOut.bind(this)} className="nav-link">
                        <button className="btn btn-outline-success my-2 my-sm-0" >Logout</button>
                     </a>

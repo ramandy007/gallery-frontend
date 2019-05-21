@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from "react-bootstrap";
 import './gallery.css';
-import VPlayer from "./player";
 import JwPagination from 'jw-react-pagination';
 
 
@@ -16,8 +15,10 @@ class GalleryModal extends Component{
             <div isOpen={this.props.isOpen} className='modal-overlay' onClick={this.props.onClick} onBackdropClick={(e)=>{e.preventDefault()} } data-backdrop="static" name={this.props.name}>
               <div className='modal-body'>
            
-          <a className='modal-close' href="#" onClick={this.props.onClick}><span className='far fa-window-close'></span></a>
+          {/* <a className='modal-close'  href="#" onClick={this.props.onClick}><span className='far fa-window-close'></span></a> */}
+          <button type="button" className='modal-close'  onClick={this.props.onClick}><span className='far fa-window-close'></span></button>
          
+
           <div className="img-space img-fluid img-thumbnail" onClick={(e)=>{e.preventDefault()}}>
             <div className="row">
                 <div className="col-sm-6 col-md-3 col-xl-2"><img src={this.props.src.IMAGENAME1} alt="image1" /><img src={this.props.src.IMAGENAME2}  alt="image2"/>< img src={this.props.src.IMAGENAME3} alt="image3"/></div>
@@ -127,7 +128,7 @@ class Gallery extends Component{
               
                 
                <GalleryModal isOpen={this.state.showModal} onClick={this.closeModal} src={this.state.url} />
-               <JwPagination pageSize="15" items={this.props.url} onChangePage={this.onChangePage} className="Pagination"  />
+               <JwPagination pageSize="15" maxPages="10" items={this.props.url} onChangePage={this.onChangePage} className="Pagination"  />
             </div>
         );
     }

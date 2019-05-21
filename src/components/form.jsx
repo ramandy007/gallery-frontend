@@ -18,9 +18,11 @@ class PageForm extends Component{
             color:null,
             url:null,
             show:false,
-            error:null
+            error:null,
+            gender:"Male",
 
         }
+        this.handleOptionChange=this.handleOptionChange.bind(this);
 
     
     }
@@ -41,6 +43,13 @@ class PageForm extends Component{
        
 
         
+    }
+
+    handleOptionChange= event=>{
+        this.setState({
+            gender:event.target.value
+        });
+        console.log(event.target.value)
     }
     
     render(){
@@ -122,7 +131,7 @@ class PageForm extends Component{
                     </Col>
                     </Form.Group>
  
-                    <Form.Group >
+                    {/* <Form.Group >
                         <Col className="col-auto col-space"  >
                         <Form.Label>Gender</Form.Label>
                         <Form.Control as="select" value={this.state.gender}
@@ -135,21 +144,40 @@ class PageForm extends Component{
                             
                         </Form.Control>
                         </Col>
-                        </Form.Group>   
+                        </Form.Group>    */}
 
-                        {/* <div>
-                        <Form>
-                            {['radio'].map(type => (
-                                <div key={`inline-${type}`} className="mb-3">
-                                <Form.Check inline label="Male" type={type} id={`inline-${type}-1`} />
-                                <Form.Check inline label="Female" type={type} id={`inline-${type}-2`} />
-                                <Form.Check inline label="Unknown" type={type}  id={`inline-${type}-3`} />
-                                </div>
-                            ))}
-                        </Form>;                            
+                    <Form.Group>
+                            <Col className="col-auto col-space"  >  
+                            <Form.Label>Gender</Form.Label>
+                            <Form.Check 
+                            type="radio"
+                            id="Male"
+                            label="Male"
+                            value="Male"
+                            checked={this.state.gender === "Male"}
+                            onChange={this.handleOptionChange}
+                            />
+                            <Form.Check
+                            type="radio"
+                            id="Female"
+                            label="Female"
+                            value="Female"
+                            checked={this.state.gender === "Female"}
+                            onChange={this.handleOptionChange}
 
+                            />
+                            <Form.Check 
+                            type="radio"
+                            id="Unknown"
+                            label="Unknown"
+                            value="Unknown"
+                            checked={this.state.gender === "Unknown"}
+                            onChange={this.handleOptionChange}
 
-                        </div> */}
+                            />
+                        
+                        </Col>
+                    </Form.Group>
 
 
 
