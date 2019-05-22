@@ -1,5 +1,5 @@
 .form-space{
-    margin:15px;
+    margin:2px;
     display:flex;
     background-color: aliceblue;
     border:1px solid;
@@ -9,11 +9,29 @@
 
     
 }
-.col-space ,.btn-space{
+.width-reduce{
+    width: 10%;
+}
+/* .col-space ,.btn-space{
     margin:5px;
+} */
+.form-group{
+    margin-bottom:0rem;
 }
 
+.form-row{
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-right:0px;
+}
+.body{
+    font-size: 80%;
+}
 
 /* .align-right{
     text-align: left;
 } */
+
+#Adjust-width{
+    min-width:80px ;
+}

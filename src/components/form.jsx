@@ -59,9 +59,21 @@ class PageForm extends Component{
             <div >
             <Form className="form-space" onSubmit={(event)=>{event.preventDefault();}} >
                 <Form.Row>
-                    <Form.Group>
-                   
+
+
+
+                <Form.Group>
                     <Col className="col-auto col-space" >
+                    <Form.Label>Date</Form.Label>                      
+                    <Form.Control placeholder="Date" type="date" value={this.state.date}
+                     onInput={(event)=>{this.setState({date:event.target.value});
+                     console.log("event",event.target.value);}}
+                    />
+                    </Col>
+                    </Form.Group>
+
+                    <Form.Group>                 
+                   <Col className="col-auto col-space" >
                     <Form.Label>From Time</Form.Label>  
                     <Form.Control placeholder="From Time" value={this.state.fromTime} type="time" step='1'
                     onInput={(event)=>{this.setState({fromTime:event.target.value});
@@ -79,20 +91,10 @@ class PageForm extends Component{
                     </Col>
                     </Form.Group>
 
-                    <Form.Group>
-                    <Col className="col-auto col-space" >
-                    <Form.Label>Date</Form.Label>                      
-                    <Form.Control placeholder="Date" type="date" value={this.state.date}
-                     onInput={(event)=>{this.setState({date:event.target.value});
-                     console.log("event",event.target.value);}}
-                    />
-                    </Col>
-                    </Form.Group>
-
-                    <Form.Group>
-                    <Col className="col-auto col-space" >
+                    <Form.Group className="width-reduce">
+                    <Col className="col-auto col-space " >
                     <Form.Label>Age</Form.Label>  
-                    <Form.Control placeholder="Age" type="number" value={this.state.age} 
+                    <Form.Control placeholder="Age" id="Adjust-width" type="number" min="0" value={this.state.age} 
                      onInput={(event)=>{this.setState({age:event.target.value});
                      console.log("event",event.target.value);}}
                     />
@@ -106,7 +108,7 @@ class PageForm extends Component{
                          onInput={(event)=>{this.setState({color:event.target.value});
                          console.log("event",event.target.value);}}
                         >   
-                            <option disabled={false} selected="unknown" >unknown</option>
+                            <option disabled={false} selected="unknown" >All</option>
                             <option>Blue</option>
                             <option>Green</option>
                             <option>Red</option>
@@ -121,7 +123,7 @@ class PageForm extends Component{
                         </div>
                         </Form.Group>   
 
-                    <Form.Group>
+                    {/* <Form.Group>
                     <Col className="col-auto col-space"  >
                     <Form.Label>Color</Form.Label>                                 
                     <Form.Control placeholder="Color" type="color" value={this.state.color}
@@ -129,7 +131,7 @@ class PageForm extends Component{
                      console.log("event",event.target.value);}}
                     />
                     </Col>
-                    </Form.Group>
+                    </Form.Group> */}
  
                     {/* <Form.Group >
                         <Col className="col-auto col-space"  >
@@ -142,7 +144,7 @@ class PageForm extends Component{
                             <option>Female</option>
                             <option>Unknown</option>
                             
-                        </Form.Control>
+                                                                                   </Form.Control>
                         </Col>
                         </Form.Group>    */}
 
@@ -169,7 +171,7 @@ class PageForm extends Component{
                             <Form.Check 
                             type="radio"
                             id="Unknown"
-                            label="Unknown"
+                            label="Both"
                             value="Unknown"
                             checked={this.state.gender === "Unknown"}
                             onChange={this.handleOptionChange}

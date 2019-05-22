@@ -4,6 +4,18 @@ import {Link,withRouter} from 'react-router-dom';
  import './navbar.css';
 
 class Navbar extends Component {
+    constructor(props) {
+        super(props);
+        this.toggleNavbar = this.toggleNavbar.bind(this);
+        this.state = {
+        collapsed: true,
+        };
+        }
+        toggleNavbar() {
+        this.setState({
+        collapsed: !this.state.collapsed,
+        });
+        }
 
     logOut(e){
         e.preventDefault();
@@ -14,6 +26,7 @@ class Navbar extends Component {
 
 
     render(){
+
 
         const loginRegLink=(
             <ul className="navbar-nav">
@@ -54,20 +67,26 @@ class Navbar extends Component {
                 </li>                             
             </ul>
         )
+
+        const collapsed = this.state.collapsed;
+ const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
+ const classTwo = collapsed ? 'navbar-toggler navbar-toggler collapsed' : 'navbar-toggler navbar-toggler';
         
         return(
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
-                <button className="navbar-toggler" 
+                <button 
+                className={`${classTwo}`}
+                onClick={this.toggleNavbar}
                 type="button"
                 data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
+                data-target="navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
                 aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div className="collapse navbar-collapse " id="navbarSupportedContent">
+                <div className={`${classOne}`}  id="navbarResponsive">
                     <ul className="navbar-nav mr-auto ">
                         <li className="nav-item active " >
                             <Link to ="/" className="nav-link">

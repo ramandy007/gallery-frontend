@@ -16,12 +16,14 @@ class GalleryModal extends Component{
               <div className='modal-body'>
            
           {/* <a className='modal-close'  href="#" onClick={this.props.onClick}><span className='far fa-window-close'></span></a> */}
-          <button type="button" className='modal-close'  onClick={this.props.onClick}><span className='far fa-window-close'></span></button>
+         <button className='far fa-window-close modal-close'  onClick={this.props.onClick}></button>
          
 
           <div className="img-space img-fluid img-thumbnail" onClick={(e)=>{e.preventDefault()}}>
-            <div className="row">
-                <div className="col-sm-6 col-md-3 col-xl-2"><img src={this.props.src.IMAGENAME1} alt="image1" /><img src={this.props.src.IMAGENAME2}  alt="image2"/>< img src={this.props.src.IMAGENAME3} alt="image3"/></div>
+            <div className="row"  >
+                <div className="col-auto"><img src={this.props.src.IMAGENAME1} alt="image1" />
+                <img src={this.props.src.IMAGENAME2}  alt="image2"/>
+                < img src={this.props.src.IMAGENAME3} alt="image3"/></div>
                 <div className="col-sm-6 col-md-3 col-xl-2">
                     <div>
                         <Table striped   hover >
