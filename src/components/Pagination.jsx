@@ -1,5 +1,6 @@
 import React from 'react';
 import JwPagination from 'jw-react-pagination';
+import "bootstrap/dist/css/bootstrap.css"
 
 class Pagination extends React.Component {
     constructor() {

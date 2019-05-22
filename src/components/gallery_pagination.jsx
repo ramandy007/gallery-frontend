@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.css"
 import './gallery.css';
 import JwPagination from 'jw-react-pagination';
 
@@ -20,13 +21,15 @@ class GalleryModal extends Component{
          
 
           <div className="img-space img-fluid img-thumbnail" onClick={(e)=>{e.preventDefault()}}>
-            <div className="row"  >
-                <div className="col-auto"><img src={this.props.src.IMAGENAME1} alt="image1" />
-                <img src={this.props.src.IMAGENAME2}  alt="image2"/>
-                < img src={this.props.src.IMAGENAME3} alt="image3"/></div>
+            <div className="row">
+                <div className="col-auto">
+                <img className="img_padding" src={this.props.src.IMAGENAME1} alt="image1" />
+                <img className="img_padding"src={this.props.src.IMAGENAME2}  alt="image2"/>
+                <img className="img_padding"src={this.props.src.IMAGENAME3} alt="image3"/>
+            </div>
                 <div className="col-sm-6 col-md-3 col-xl-2">
                     <div>
-                        <Table striped   hover >
+                        <Table striped   hover  id="table">
                             <thead>
                                 <tr>
                                     <th>FromTime</th>

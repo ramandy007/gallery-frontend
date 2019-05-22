@@ -26,6 +26,7 @@
 }
 .body{
     font-size: 80%;
+    line-height: 1.6;
 }
 
 /* .align-right{
@@ -34,4 +35,20 @@
 
 #Adjust-width{
     min-width:80px ;
+}
+
+.form-control{
+    height: 32px;
+    line-height: initial;
+    font-size: 13px;
+
+}
+
+.btn{
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.form-check{
+    font-size:15px;
 }

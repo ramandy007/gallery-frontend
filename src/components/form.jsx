@@ -2,9 +2,10 @@ import React ,{Component}from 'react';
 import axios from 'axios';
 
 import {Col,Form,Button,Container} from 'react-bootstrap';
-
+import "bootstrap/dist/css/bootstrap.css"
 import './form.css';
 import Gallery from './gallery_pagination'
+import Graph from './graph'
 
 //  navbar-expand-lg navbar-light bg-light static-top mb-5 shadow
 class PageForm extends Component{
@@ -20,17 +21,19 @@ class PageForm extends Component{
             show:false,
             error:null,
             gender:"Male",
+            view:"",
+
 
         }
         this.handleOptionChange=this.handleOptionChange.bind(this);
-
+      //  let url="";
     
     }
    
     callQuery(){
         try{    
                 axios.get("http://localhost:3021/query",{params:{fromTime:this.state.fromTime,toTime:this.state.toTime,date:this.state.date,age:this.state.age,color:this.state.color}})
-                .then(res=>{const url = res.data;this.setState({url:url});
+                .then(res=>{this.url = res.data;console.log(this.url);this.setState({url:this.url});
                 if (res.status ===500){this.setState({loading:res.message})}
                 else{
                     const error=new Error(res.error);
@@ -50,6 +53,7 @@ class PageForm extends Component{
             gender:event.target.value
         });
         console.log(event.target.value)
+        console.log(this.url)
     }
     
     render(){
@@ -182,6 +186,26 @@ class PageForm extends Component{
                     </Form.Group>
 
 
+                    <Form.Group >
+                        <div className="col-auto col-space" >
+                        <Form.Label>View Distance</Form.Label>
+                        <Form.Control as="select" value={this.state.view} 
+                         onInput={(event)=>{this.setState({view:event.target.value});
+                         console.log("event",event.target.value);}}
+                        >   
+                            <option selected="Far" >Far</option>
+                            <option>Medium</option>
+                            <option>Near</option>
+                            
+                        </Form.Control>
+                        </div>
+                        </Form.Group>   
+
+
+                    
+
+
+
 
                        
                       <Form.Group>
@@ -198,14 +222,19 @@ class PageForm extends Component{
                 </Form>
                  {(this.state.show && this.state.url!==null)?
                  <Container>
-                    <Gallery url={this.state.url} ></Gallery>                                
+                    <Gallery url={this.state.url} ></Gallery> 
+                    {console.log(this.url)}
+                  < Graph data={this.url} />                               
                 
                 </Container>  : <Container>
-                    <h4 className="not-found" >Images not found!!</h4>
+                    
                     
                 </Container>
+
+               
                 
                  }
+                 
                 </div>
 
                 

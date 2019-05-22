@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import{ register } from './UserFunctions'
 
+import "bootstrap/dist/css/bootstrap.css"
 class Register extends Component{
 
     constructor(props){

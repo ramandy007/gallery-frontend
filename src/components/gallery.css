@@ -123,3 +123,11 @@ body {
 .Pagination{
   align-self: center;
 }
+
+#table{
+  font-size: 80%;
+}
+
+.img_padding{
+  padding:2px;
+}

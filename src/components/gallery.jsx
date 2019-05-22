@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Table} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.css"
 import './gallery.css';
 import VPlayer from "./player";
 import Pagination from "./Pagination";
