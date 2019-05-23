@@ -4,8 +4,11 @@ import axios from 'axios';
 import {Col,Form,Button,Container} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.css"
 import './form.css';
+import "./graph.css";
+
 import Gallery from './gallery_pagination'
 import Graph from './graph'
+import BarGraph from './graph1';
 
 //  navbar-expand-lg navbar-light bg-light static-top mb-5 shadow
 class PageForm extends Component{
@@ -220,13 +223,21 @@ class PageForm extends Component{
                 </Form.Row>
 
                 </Form>
+
+
                  {(this.state.show && this.state.url!==null)?
-                 <Container>
-                    <Gallery url={this.state.url} ></Gallery> 
+                 <div className="disp-flex">
+                    <Gallery url={this.state.url} className="disp-flex" ></Gallery> 
                     {console.log(this.url)}
-                  < Graph data={this.url} />                               
-                
-                </Container>  : <Container>
+                  {/* < Graph data={this.url} /> 
+                                           */}
+
+            <div className="chart-container form-space" >
+            <BarGraph data={this.url} />  </div> 
+           
+               
+                </div>   : 
+                <Container>
                     
                     
                 </Container>

@@ -1,0 +1,8 @@
+.chart-container{
+    display: flex;
+     /* height:300px;
+      width:600px; */
+}
+.disp-flex{
+    display: flex;
+}
