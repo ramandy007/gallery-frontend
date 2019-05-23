@@ -20,12 +20,13 @@ class PageForm extends Component{
             toTime:null,
             date:null,
             age:null,
-            color:null,
+            color:"All",
             url:null,
             show:false,
             error:null,
             gender:"Male",
             view:"",
+            
 
 
         }
@@ -92,7 +93,7 @@ class PageForm extends Component{
                     <Form.Group>
                     <Col  className="col-auto col-space">
                     <Form.Label>To Time</Form.Label>                      
-                    <Form.Control placeholder="To Time" type="time" step='1' value={this.state.toTime}
+                    <Form.Control placeholder="To Time" min={this.state.fromTime} type="time" step='1' value={this.state.toTime}
                      onInput={(event)=>{this.setState({toTime:event.target.value});
                      console.log("event",event.target.value);}}
                     />
