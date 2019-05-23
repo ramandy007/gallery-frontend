@@ -5,6 +5,7 @@ import {Col,Form,Button,Container} from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.css"
 import './form.css';
 import "./graph.css";
+import VPlayer from "./player";
 
 import Gallery from './gallery_pagination'
 import Graph from './graph'
@@ -115,7 +116,7 @@ class PageForm extends Component{
                          onInput={(event)=>{this.setState({color:event.target.value});
                          console.log("event",event.target.value);}}
                         >   
-                            <option disabled={false} selected="unknown" >All</option>
+                            <option>All</option>
                             <option>Blue</option>
                             <option>Green</option>
                             <option>Red</option>
@@ -232,8 +233,17 @@ class PageForm extends Component{
                   {/* < Graph data={this.url} /> 
                                            */}
 
-            <div className="chart-container form-space" >
-            <BarGraph data={this.url} />  </div> 
+            <div className="disp-flex form-space " >
+                <div>
+            <BarGraph data={this.url} />  
+
+            <VPlayer className="chart-container"/>
+
+           
+            </div>
+            
+            </div> 
+            
            
                
                 </div>   : 
